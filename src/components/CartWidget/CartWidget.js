@@ -1,8 +1,7 @@
 import './CartWidget.css'
 const CartWidget = () => {
     return (
-        <div className="cart">
-            <img className="cart1"  src='/images/cart.png' alt='CartWidget'/>
+        <div className="cart fa fa-shopping-cart">
             "40" 
         </div>
     )

@@ -1,8 +1,12 @@
 import './CartWidget.css'
+
+
+
 const CartWidget = () => {
+
     return (
         <div className="cart fa fa-shopping-cart">
-            "40" 
+            1
         </div>
     )
 }

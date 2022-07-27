@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900&display=swap');
+
+/* General styles */
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #e8ebf7;
+	display: inline;
+	text-align: center;
+	justify-content: center;
+	min-height: 100vh;
+	font-size: 14px;
+	
+}
+
+/* Open button */
+.trigger {
+	display: inline-block;
+	background: green;
+	padding: 8px 15px;
+	color: #fff;
+	border: 0;
+	border-radius: 5px;
+	font-size: 1.5em;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+	transition: 0.15s ease-in-out;
+	cursor: pointer;
+}
+.trigger:hover {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Nav position and opening class */
+.full-screen-nav {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transition: 0.2s ease-in-out;
+	display: none;
+}
+.open-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Backgroup position and animation */
+.backdrop {
+	position: fixed;
+	width: 100%;
+	height: 900%;
+	background: rgba(0, 0, 0, 0.92);
+	cursor: pointer;
+	animation: fadeIn 0.2s ease-in-out forwards;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* List item styling & animation */
+ul {
+	z-index: 9999;
+	position: fixed;
+}
+ul li {
+	justify-content: center;
+	list-style: none;
+	text-align: center;
+	margin-bottom: 35px;
+	animation: 0.25s ease-in-out animateList forwards;
+}
+ul li:last-child {
+	margin-bottom: 0;
+}
+@keyframes animateList {
+	from {
+		margin-top: -60px;
+		opacity: 0;
+	}
+	to {
+		margin-top: 120;
+		opacity: 1;
+	}
+}
+
+/* Item links styles and hover effect*/
+ul li a {
+	top: 65%;
+	text-decoration: none;
+	color: #ccc;
+	font-size: 3em;
+	font-weight: 900;
+	text-transform: uppercase;
+	transition: 0.15s ease-in-out;
+}
+ul li a:hover,
+ul li a i {
+	color: #ffa500;
+}

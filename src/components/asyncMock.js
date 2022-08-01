@@ -23,3 +23,9 @@ export const productList = [
 }
     
 ]
+export const getProductById = (id) =>{
+    return new Promise( (resolve) =>{
+        resolve (productList.find(prod => prod.id===id))
+
+    })
+}

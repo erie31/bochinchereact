@@ -1,6 +1,6 @@
 import React from 'react';
 import swal from 'sweetalert';
-import ItemCount from './ItemCount.js';
+import ItemCount from '../ItemCount';
 
 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Item from './Item'
-import {productList} from './asyncMock'
+import Item from '../Item/Item'
+import {productList} from '../asyncMock'
 import swal from 'sweetalert';
 
 
@@ -33,7 +33,7 @@ const ItemList = () => {
     
   
     return (
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-around">
         {
          
           products.length ? ( 

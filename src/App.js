@@ -2,8 +2,8 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import CartWidget from './components/CartWidget/CartWidget';
-import ItemListContainer from './components/ItemListContainer';
-
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   
@@ -12,7 +12,7 @@ function App() {
          
            <NavBar />
            <ItemListContainer greeting= "PROMOS"/>
-           
+           <ItemDetailContainer/>
     
           </>;
 }

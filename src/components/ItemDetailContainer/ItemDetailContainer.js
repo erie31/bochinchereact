@@ -8,6 +8,7 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     getProductById(productId)
+    
       .then((product) => {
         setProduct(product)
       })

@@ -1,4 +1,5 @@
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 	
@@ -12,9 +13,9 @@ const NavBar = () => {
     </div>
 	
 	<nav className="navbar navbar-dark bg-dark">
-		<a className="navbar-brand" href="#top">Inicio</a>
-		<a className="navbar-brand" href="#top">Galeria</a>
-		<a className="navbar-brand" href="#top">Contacto</a>
+		<Link to='/category/inflables' className="navbar-brand">Inflables</Link>
+		<Link to='/category/toros' className="navbar-brand" >Toros</Link>
+		<Link to='/' className="navbar-brand" >Contacto</Link>
 		
      
 </nav>

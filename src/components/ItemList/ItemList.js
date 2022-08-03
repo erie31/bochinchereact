@@ -7,7 +7,7 @@ const ItemList = () => {
   const [products, setProducts] = useState([]);
 
   const getProducts = new Promise((resolve, reject) => {
-    //  //este es que por el momento uso para simular el pedido a una api
+  
     setTimeout(() => {
       if (true) {
         resolve(productList);
@@ -17,13 +17,13 @@ const ItemList = () => {
   });
 
   const getProductsFromDB = async () => {
-    //uso para simular el pedido a una api
+    
     try {
       const result = await getProducts;
       setProducts(result);
     } catch (error) {
       swal.error(error);
-      alert("No contamos con ese servicio por el momento");
+      swal("No contamos con ese servicio por el momento");
     }
   };
   useEffect(() => {

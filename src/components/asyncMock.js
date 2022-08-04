@@ -1,5 +1,5 @@
 
-export const productList = [
+const products = [
     {   id:'1',
     nombre:"Inflable Bochinchito",
     tamaño:"Chico",
@@ -41,14 +41,21 @@ export const productList = [
 ]
 export const getProductById = (id) =>{
     return new Promise( (resolve) =>{
-        resolve (productList.find(prod => prod.id===id))
+        resolve (products.find(prod => prod.id===id))
 
     })
 }
 export const getProductsByCategory = (categoryId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(productList.filter(prod => prod.category === categoryId))
+            resolve(products.filter(prod => prod.category === categoryId))
+        }, 500)
+    })
+}
+export const getProducts = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products)
         }, 500)
     })
 }

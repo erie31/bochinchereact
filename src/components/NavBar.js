@@ -15,7 +15,7 @@ const NavBar = () => {
 	<nav className="navbar navbar-dark bg-dark">
 		<Link to='/category/inflables' className="navbar-brand">Inflables</Link>
 		<Link to='/category/toros' className="navbar-brand" >Toros</Link>
-		<Link to='/' className="navbar-brand" >Contacto</Link>
+		<Link to='/' className="navbar-brand" >BOCHINCHE</Link>
 		
      
 </nav>

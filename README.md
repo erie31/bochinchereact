@@ -1,5 +1,5 @@
 Instalación local
-$ git clone https://github.com/erie31/bochinchereact/tree/develop
+$ git clone https://github.com/erie31/bochinchereact/tree/tp
 
 $ cd bochinchereact
 

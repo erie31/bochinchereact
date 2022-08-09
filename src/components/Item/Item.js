@@ -17,7 +17,7 @@ const Item = ({ nombre, imagen, tamaño,stock, id }) => {
       <h3 className="card-title">{nombre}</h3>
       <span className="card-text">{tamaño}</span>
       <Link to={`/detail/${id}`} className='btn-primary'>Detalle</Link>
-      <ItemCount stock={stock} onAdd={onAdd} initial={1} />
+      <ItemCount stock={stock} onAdd={onAdd} initial={0} />
     </article>
   );
 };

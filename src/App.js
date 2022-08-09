@@ -8,10 +8,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 
+
 function App({category}) {
   
   return  <>
-  <BrowserRouter>
+  
+    <BrowserRouter>
            <CartWidget/>
            <NavBar />
            <Routes>
@@ -20,9 +22,8 @@ function App({category}) {
             <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
             <Route path='*' element={<h1>404NotFound</h1>}/>
            </Routes>
-
-    
     </BrowserRouter>
+ 
           </>;
 }
 export default App;

@@ -1,18 +1,18 @@
-
 import './App.css';
 import NavBar from './components/NavBar';
 import CartWidget from './components/CartWidget/CartWidget';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {CartContextProvider}  from './context/cartContext'
 
 
 
 
-function App({category}) {
+function App() {
   
   return  <>
-  
+  <CartContextProvider>
     <BrowserRouter>
            <CartWidget/>
            <NavBar />
@@ -23,7 +23,7 @@ function App({category}) {
             <Route path='*' element={<h1>404NotFound</h1>}/>
            </Routes>
     </BrowserRouter>
- 
+  </CartContextProvider>
           </>;
 }
 export default App;

@@ -1,94 +1,49 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import ItemCount from '../ItemCount'
+import CartContext from '../../context/cartContext'
+const ItemDetail = ({ id, nombre, imagen, category, catering, precio, stock }) => {
+    const [quantityToAdd, setQuantityToAdd] = useState(0)
 
-
-const InputCount = ({onConfirm, stock, initial= 1}) => {
-    const [count, setCount] = useState(initial)
-
-    const handleChange = (e) => {
-        if(e.target.value <= stock) {
-            setCount(e.target.value)
-        }
-    }
-
-    return (
-        <div>
-            <input  type='number' onChange={handleChange} value={count}/>
-            <button  onClick={() => onConfirm(count)}>Agregar al carrito</button>
-        </div>
-    )
-}
-
-const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
-    const [count, setCount] = useState(initial)
-
-    const increment = () => {
-        if(count < stock) {
-            setCount(count + 1)
-        }
-
-    }
-
-    const decrement = () => {
-            setCount(count - 1)
-
-    }
-
-    return (
-       <> <div>
-            <p>{count}</p>
-            <button className='btn-primary' onClick={decrement}>-</button>
-            <button className='btn-primary' onClick={increment}>+</button>
-        </div>
-        <div>
-            <button className='btn-primary' onClick={() => onConfirm(count)}>Agregar al carrito</button>
-
-        </div>
-        </>
-    )
-}
-
-
-const ItemDetail = ({nombre,imagen,precio,stock,catering, category}) => {
-    const [inputType] = useState('button')
-    const [quantity, setQuantity] = useState(0)
+    const { addItem, getProductQuantity } = useContext(CartContext)
     
+    const productQuantity = getProductQuantity(id)
 
-    const  handleOnAdd = (quantity) => {
-               setQuantity(quantity)
+    const handleOnAdd = (quantity) => {
+        setQuantityToAdd(quantity)
+
+        const productToAdd = { id, nombre, precio, quantity }
+
+        addItem(productToAdd)
     }
 
-    const Count = inputType === 'button' ? ButtonCount : InputCount
 
     return (
-        <article className="">
-            
-            <header className="card-title">
-                <h2 className="card-text">
+        <article>
+            <header className='card-title'>
+                <h2 className='card-text'>
                     {nombre}
                 </h2>
             </header>
             <picture>
-                <img src={imagen} alt={nombre} className=""/>
+                <img src={imagen} alt={nombre}/>
             </picture>
             <section>
-                <p className="">
+                <p className="text-muted">
                     Categoria: {category}
                 </p>
-                <p className="">
+                <p className="text-muted">
                     Descripción: {catering}
                 </p>
-                <p className="">
+                <p className="text-muted">
                     Precio: {precio}
                 </p>
             </section>           
-            <footer className=''>
+            <footer className='ItemFooter'>
                 {
-                    quantity === 0 ? (
-                        <Count onConfirm={handleOnAdd} stock={stock} />
-                    ) : (
-                        <Link to='/cart'>Finalizar compra</Link>
-                    )
+                    quantityToAdd === 0 ? (
+                    <ItemCount onAdd={handleOnAdd} stock={stock} initial={productQuantity}/>
+                    ) : (<Link to='/cart'>Finalizar compra</Link>)
                 }
             </footer>
         </article>

@@ -2,12 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 
 
-const ItemCount = ({ onAdd, initial, stock }) => {
+const ItemCount = ({ onAdd, initial = 1, stock }) => {
   
-  const [qty, setQty] = useState(initial);
+  const [quantity, setQuantity] = useState(initial);
 
   const addProduct = (num) => {
-    setQty(qty + num);
+    setQuantity(quantity + num);
   };
 
   return (
@@ -16,19 +16,19 @@ const ItemCount = ({ onAdd, initial, stock }) => {
         <button
           className="btn btn-primary btn-lg active"
           onClick={() => addProduct(-1)}
-          disabled ={qty === initial}>-</button>
-        <span className="count-container__qty">{qty}</span>
+          disabled ={quantity === initial}>-</button>
+        <span>{quantity}</span>
         <button
           className= "btn btn-primary btn-lg active"
           onClick={() => addProduct(+1)}
-          disabled={qty === stock}
+          disabled={quantity === stock}
         >+</button>
       </div>
 
       <button
         className= "btn btn-primary" data-toggle="button"
         onClick={() => {
-          onAdd(qty);
+          onAdd(quantity);
         }}
         disabled={stock === 0 ? true : null}
       >

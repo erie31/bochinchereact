@@ -16,8 +16,9 @@ function App() {
             <NavBar />       
            <Routes>
             <Route path='/' element={<ItemListContainer greeting={"Nuestras opciones"}/>}/>
-            <Route path='/detail/:productId' element={<ItemDetailContainer />}/>
+            <Route path='/detail/:product' element={<ItemDetailContainer />}/>
             <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+            <Route path='/cart'/>
             <Route path='*' element={<h1>404NotFound</h1>}/>
            </Routes>
     </BrowserRouter>

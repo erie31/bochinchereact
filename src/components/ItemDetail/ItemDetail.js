@@ -1,11 +1,16 @@
+import ItemCount from '../ItemCount'
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import ItemCount from '../ItemCount'
+import swal from 'sweetalert'
 import CartContext from '../../context/cartContext'
+
+
+
 const ItemDetail = ({ id, nombre, imagen, category, catering, precio, stock }) => {
     const [quantityToAdd, setQuantityToAdd] = useState(0)
 
     const { addItem, getProductQuantity } = useContext(CartContext)
+    
     
     const productQuantity = getProductQuantity(id)
 
@@ -13,8 +18,9 @@ const ItemDetail = ({ id, nombre, imagen, category, catering, precio, stock }) =
         setQuantityToAdd(quantity)
 
         const productToAdd = { id, nombre, precio, quantity }
-
+        
         addItem(productToAdd)
+        swal (`Se agreagaron ${quantity} ${category} a tu carro`)
     }
 
 
@@ -39,10 +45,10 @@ const ItemDetail = ({ id, nombre, imagen, category, catering, precio, stock }) =
                     Precio: {precio}
                 </p>
             </section>           
-            <footer className='ItemFooter'>
+            <footer>
                 {
                     quantityToAdd === 0 ? (
-                    <ItemCount onAdd={handleOnAdd} stock={stock} initial={productQuantity}/>
+                    <ItemCount onAdd={handleOnAdd} stock={stock} initial={productQuantity} />
                     ) : (<Link to='/cart'>Finalizar compra</Link>)
                 }
             </footer>

@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900&display=swap');
 body {
 	font-family: 'Roboto', sans-serif;
-	background: #e8ebf7;
 	display: inline;
 	text-align: center;
 	justify-content: center;
-	min-height: 100vh;
-	font-size: 14px;
-	
+		
 }

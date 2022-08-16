@@ -20,7 +20,7 @@ const ItemCount = ({ onAdd, initial = 1, stock }) => {
         <button
           className="btn btn-primary btn-lg active"
           onClick={() => addProduct(-1)}
-          disabled ={quantity === initial}>-</button>
+          disabled ={quantity === 0}>-</button>
         <span>{quantity}</span>
         <button
           className= "btn btn-primary btn-lg active"

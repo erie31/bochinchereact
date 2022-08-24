@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
 const Form = () => {
-
   const [data, setData] = useState({
     nombre: "",
-    tel: "",
+    telefono: "",
     email: "",
   });
 
   const handleChange = (e) => {
-  
     setData({
       ...data,
       [e.target.name]: e.target.value,
@@ -20,9 +18,8 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
   };
- 
+  const required = (value) => (value ? undefined : "Requerido");
   return (
     <div style={{ width: "100%" }}>
       <h1>Complete con sus datos para continuar el pago</h1>
@@ -32,11 +29,11 @@ const Form = () => {
           name="nombre"
           placeholder="Nombre Completo"
           value={data.nombre}
-          onChange={handleChange}
+          onChange={handleChange} validate={required}
         />
         <input
           type="number"
-          name="tel"
+          name="telefono"
           placeholder="Teléfono"
           value={data.tel}
           onChange={handleChange}
@@ -48,8 +45,6 @@ const Form = () => {
           value={data.email}
           onChange={handleChange}
         />
-
-        
       </form>
     </div>
   );

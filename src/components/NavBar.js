@@ -9,11 +9,11 @@ const NavBar = () => {
 		<main>
     <CartWidget/>
       <div>
-        <h1>BOCHINCHE</h1>
+      <Link to='/' className="navbar-brand" > <h1>BOCHINCHE</h1></Link>
       </div>
     
     
-	<nav className="navbar navbar-dark bg-dark">
+	<nav className="navbar navbar-dark bg-primary">
 		<Link to='/category/inflables' className="navbar-brand">Inflables</Link>
 		<Link to='/category/toros' className="navbar-brand" >Toros</Link>
 		<Link to='/' className="navbar-brand" >BOCHINCHE</Link>

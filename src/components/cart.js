@@ -1,5 +1,6 @@
 import CartContext from './../context/cartContext'
 import {useContext} from 'react';
+import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 
 
@@ -19,17 +20,17 @@ let subTotal= 0;
                     <th>Servicios</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
-                    <th>Total</th>
+                    <th>SubTotal</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cart.map((c) => {
 
                        totalCart += c.quantity*c.precio
-                       
+                       subTotal =  c.precio * c.quantity
                         return (
                         <tr key={c.id}>
-                        <button className="bi bi-trash" alt='delete' onClick={() => removeItem(c.id) } id={c.id}/>
+                       <td> <button className="bi bi-trash" alt='delete' onClick={() => removeItem(c.id) } id={c.id}/></td>
                         <td>{c.nombre}</td>
                         <td>${c.precio}</td>
                         <td>{c.quantity}</td>
@@ -45,7 +46,7 @@ let subTotal= 0;
             <div className='containerButton'>
 
                 {cart.length !== 0 && <button className='col-auto btn-primary' onClick={clearCart}>Eliminar carro</button>}
-                {cart.length !== 0 && <button className='col-auto btn-primary'>Pagar</button>}
+                {cart.length !== 0 && <button className='col-auto btn-primary'><Link className='btn-primary' to='/checkout'>Iniciar pago</Link></button>}
             </div>
         </div>
     )

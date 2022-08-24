@@ -16,8 +16,6 @@ const Form = () => {
     });
   };
 
-  console.log("data :", data);
-
   const handleSubmit = (e) => {
     e.preventDefault();
    

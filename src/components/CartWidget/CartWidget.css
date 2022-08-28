@@ -2,9 +2,12 @@
     position: absolute;
     display: inline;
     right: 2%;
+    width: 40px;
+   height: 40px;
+   margin-top: 20px;
 }
 .cart1{
     width: 40px;
    height: 40px;
-   
+   margin-top: 5px;
 }

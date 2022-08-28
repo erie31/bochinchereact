@@ -3,10 +3,10 @@ import { db } from "../../services/firebase";
 import { useState, useContext, useEffect } from "react";
 import {  addDoc,  collection,  getDocs,  query,  where,  documentId,  writeBatch, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import swal from "sweetalert";
 import { Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import validator from "validator";
+import swal from "sweetalert";
 
 
 const Checkout = (props) => {
@@ -127,15 +127,15 @@ const handlePhoneChange = (e) => {
 
 return (
     <>
-        <h2>Checkout Information:</h2>
-        <TextField className="formItems" error={buyerName !== "" && !validName} required variant="filled" label="Full Name" onChange={handleNameChange} value={buyerName} />
-        <TextField className="formItems" error={buyerPhone !== "" && !validPhone} required variant="filled" label="Phone Number" onChange={handlePhoneChange} value={buyerPhone} />
-        <TextField className="formItems" error={buyerEmail !== "" && !validEmail} required variant="filled" label="Email Address" onChange={handleEmailChange} value={buyerEmail} />
-        <TextField className="formItems" error={buyerEmailConf !== "" && !validEmailConf} required variant="filled" label="Confirm Email Address" onChange={handleEmailConfChange} value={buyerEmailConf} />
+        <h2>Orden de Compra:</h2>
+        <TextField  error={buyerName !== "" && !validName} required variant="filled" label="Nombre Completo" onChange={handleNameChange} value={buyerName} />
+        <TextField  error={buyerPhone !== "" && !validPhone} required variant="filled" label="Número de Teléfono" onChange={handlePhoneChange} value={buyerPhone} />
+        <TextField  error={buyerEmail !== "" && !validEmail} required variant="filled" label="Email" onChange={handleEmailChange} value={buyerEmail} />
+        <TextField  error={buyerEmailConf !== "" && !validEmailConf} required variant="filled" label="Confirmar Email" onChange={handleEmailConfChange} value={buyerEmailConf} />
        
             <div className="cartButtons">
-                <Button onClick={createOrder} variant="contained" disabled={(!validName || !validEmail || !validEmailConf || !validPhone)} color="success">Complete Purchase</Button>
-                <Button onClick={clearCart} variant="contained" color="error">Clear Cart</Button>
+                <Button onClick={createOrder} variant="contained" disabled={(!validName || !validEmail || !validEmailConf || !validPhone)} color="success">Completar Compra</Button>
+                <Button onClick={clearCart} variant="contained" color="error">Limpiar Carro</Button>
             </div>
         
     </>

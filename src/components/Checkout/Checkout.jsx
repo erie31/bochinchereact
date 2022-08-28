@@ -135,7 +135,6 @@ return (
        
             <div className="cartButtons">
                 <Button onClick={createOrder} variant="contained" disabled={(!validName || !validEmail || !validEmailConf || !validPhone)} color="success">Completar Compra</Button>
-                <Button onClick={clearCart} variant="contained" color="error">Limpiar Carro</Button>
             </div>
         
     </>
